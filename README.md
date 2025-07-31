@@ -137,15 +137,15 @@ Purpose: Displays a random positive affirmation to uplift the user.
 Usage: Fetched on-demand when the user clicks the "Get Affirmation" button.
 
 CORS Handling: Requests are routed through a CORS proxy for development:
-https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/
+    https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/
 
-✅ 2. Useless Facts API
+✅ 2. Fun Facts API
 Purpose: Provides a random fun fact for light entertainment.
-https://uselessfacts.jsph.pl/api/v2/facts/random?language=en
+    https://uselessfacts.jsph.pl/api/v2/facts/random?language=en
 
 ✅ 3. Official Joke API
 Purpose: Displays a random joke to make users smile.
-https://official-joke-api.appspot.com/jokes/random
+    https://official-joke-api.appspot.com/jokes/random
 
 
 ### Other Assets:
