@@ -130,12 +130,23 @@ This confirms the load balancer is working correctly and routing traffic to your
 
 ## 📚 APIs & Resources Used
 
-Due to offline environment limitations, static content is used for quotes and tips.
+This project uses three public APIs to enhance the user experience with dynamic content:
 
-### Planned APIs (Not used in deployment):
+✅ 1. Affirmations API
+Purpose: Displays a random positive affirmation to uplift the user.
+Usage: Fetched on-demand when the user clicks the "Get Affirmation" button.
 
-- [ZenQuotes API](https://zenquotes.io)
-- [Mental Health API (MHAPI)](https://github.com/MHAPI)
+CORS Handling: Requests are routed through a CORS proxy for development:
+https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/
+
+✅ 2. Useless Facts API
+Purpose: Provides a random fun fact for light entertainment.
+https://uselessfacts.jsph.pl/api/v2/facts/random?language=en
+
+✅ 3. Official Joke API
+Purpose: Displays a random joke to make users smile.
+https://official-joke-api.appspot.com/jokes/random
+
 
 ### Other Assets:
 
@@ -144,6 +155,9 @@ Due to offline environment limitations, static content is used for quotes and ti
 
 ---
 
+##  Youtube
+    Demo video: https://youtu.be/viu6YZkGICc
+---
 ## 🧩 Challenges & Solutions
 
 | Challenge                         | Solution                                                   |
