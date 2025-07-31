@@ -156,7 +156,8 @@ https://official-joke-api.appspot.com/jokes/random
 ---
 
 ##  Youtube
-    Demo video: https://youtu.be/viu6YZkGICc
+    Demo video:
+    https://youtu.be/viu6YZkGICc
 ---
 ## 🧩 Challenges & Solutions
 
@@ -176,11 +177,7 @@ GitHub: [https://github.com/Nazira-umucyo](https://github.com/Nazira-umucyo)
 
 ---
 
-## 📜 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
-
----
 
 ## 💙 Thank You!
 
