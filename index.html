@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindTrack – Mood Tracker & Mental Health Tips</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <main>
+    <h1>🧠 MindTrack</h1>
+    
+    <!-- Welcome Paragraph -->
+    <p>
+      Welcome to <strong>MindTrack</strong>, your safe space for emotional check-ins and self-care.
+      Whether you're feeling calm, anxious, joyful, or overwhelmed, this tool helps you tune into your mood
+      and get gentle, practical tips to support your mental well-being.
+    </p>
+
+
+    <!-- Short Description -->
+    <p>Track your mood and receive mental health support tips based on how you feel.</p>
+
+    <!-- Mood Selection Section -->
+    <section id="mood-section">
+      <label for="mood-select">How are you feeling today?</label><br />
+      <select id="mood-select">
+        <option value="">-- Select Your Mood --</option>
+        <option value="happy">😊 Happy</option>
+        <option value="sad">😢 Sad</option>
+        <option value="anxious">😰 Anxious</option>
+        <option value="angry">😡 Angry</option>
+        <option value="tired">😴 Tired</option>
+      </select>
+      <br />
+      <button id="get-tip-btn">Get Mental Health Tip</button>
+    </section>
+
+    <!-- Response Section -->
+    <section id="tip-section" style="display: none;">
+      <h2>Your Tip 💡</h2>
+      <p id="tip-text">Select a mood to receive a helpful tip.</p>
+
+      <!-- Motivational Quote Section -->
+<section id="quote-section" style="display: none; margin-top: 2rem; padding: 1rem; background-color: #f0f8ff; border-left: 6px solid #2196f3; border-radius: 10px;">
+  <h2>Motivational Quote 💬</h2>
+  <div id="quote-text">Loading quote...</div>
+  <button id="new-quote-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: #2196f3; color: white; border: none; border-radius: 8px; cursor: pointer;">New Quote</button>
+</section>
+
+<!-- Affirmation Section -->
+<section id="affirmation-section" style="display: none; margin-top: 2rem; padding: 1rem; background-color: #fffbe6; border-left: 6px solid #ff9800; border-radius: 10px;">
+  <h2>🌟 Daily Affirmation</h2>
+  <p id="affirmation-text">Click the button to get your affirmation!</p>
+  <button id="get-affirmation-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: #ff9800; color: white; border: none; border-radius: 8px; cursor: pointer;">Get Affirmation</button>
+</section>
+
+<!--fun fact section-->
+<section id="fun-fact-section" style="display: none; margin-top: 2rem; padding: 1rem; background-color: #e8f4fc; border-left: 6px solid #2196f3; border-radius: 10px;">
+  <h2>🤓 Fun Fact</h2>
+  <p id="fun-fact-text">Click the button to learn something fun!</p>
+  <button id="get-fun-fact-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: #2196f3; color: white; border: none; border-radius: 8px; cursor: pointer;">Get Fun Fact</button>
+</section>
+<!--jokes section-->
+<section id="joke-section" style="display: none;">
+  <h2>Joke of the Moment 😂</h2>
+  <p id="joke-text"></p>
+  <button id="get-joke-btn">Get Another Joke</button>
+</section>
+
+<!-- User Notes Section -->
+<section id="notes-section" style="margin-top: 2rem;">
+  <h2>Your Notes 📝</h2>
+  <textarea id="user-notes" rows="5" style="width: 100%; padding: 0.5rem; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc;" placeholder="Write down how you feel or anything you want to remember..."></textarea>
+  <button id="save-notes-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer;">Save Notes</button>
+<p id="save-confirmation" style="display: none; color: green; margin-top: 0.5rem;">Notes saved!</p>
+
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+<p>Served by app1</p>
+
+    <p>&copy; 2025 MindTrack | Built with 💙 to support your mental well-being</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

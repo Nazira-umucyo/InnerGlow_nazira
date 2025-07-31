@@ -1,0 +1,143 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #f8f9fa);
+  color: #333;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Main Container */
+main {
+  max-width: 700px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  color: #00695c;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraphs */
+main p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #444;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Label */
+label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* Select Dropdown */
+select {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+select:focus {
+  border-color: #26a69a;
+  outline: none;
+}
+
+/* Button */
+button {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(38, 166, 154, 0.2);
+}
+
+button:hover {
+  background-color: #2bbbad;
+}
+
+/* Tip Section */
+#tip-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 6px solid #26a69a;
+  border-radius: 12px;
+  background-color: #e0f2f1;
+  color: #004d40;
+  text-align: center;
+}
+
+#tip-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #ccc;
+}
+#quote-section h2, #notes-section h2 {
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+}
+
+#new-quote-btn:hover {
+  background-color: #0d47a1;
+}
+
+#user-notes {
+  resize: vertical;
+  font-family: inherit;
+}
+#affirmation-section {
+  background-color: #f0f9ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#affirmation-section button {
+  padding: 0.5rem 1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
