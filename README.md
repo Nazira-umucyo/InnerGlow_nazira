@@ -84,8 +84,6 @@ http {
 }
 ```
 
-Visit: http://localhost:8084
-
 ### ▶️ Run Load Balancer Container
 
 ```bash
@@ -118,6 +116,8 @@ Content           : <!DOCTYPE html>
 ```
 
 This confirms the load balancer is working correctly and routing traffic to your application.
+
+Visit: http://localhost:8084
 
 ---
 
