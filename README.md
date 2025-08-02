@@ -84,6 +84,8 @@ http {
 }
 ```
 
+Visit: http://localhost:8084
+
 ### ▶️ Run Load Balancer Container
 
 ```bash
