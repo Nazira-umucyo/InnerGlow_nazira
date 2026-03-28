@@ -1,4 +1,11 @@
-// Quotes mapped by mood
+if (window.location.pathname.includes("dashboard.html")) {
+  let isLoggedIn = localStorage.getItem("loggedIn");
+
+  if (!isLoggedIn) {
+    window.location.href = "index.html";
+  }
+}
+
 const moodQuotes = {
   happy: [
     "Happiness is not something ready-made. It comes from your own actions. — Dalai Lama",
@@ -194,7 +201,7 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     });
   }
-// Joke feature using API
+
 const jokeSection = document.getElementById("joke-section");
 const jokeText = document.getElementById("joke-text");
 const getJokeBtn = document.getElementById("get-joke-btn");
@@ -213,10 +220,42 @@ function fetchJoke() {
     });
 }
 
-// Load first joke on page load (optional)
+
 fetchJoke();
 
-// Reload joke when button is clicked
 if (getJokeBtn) {
   getJokeBtn.addEventListener("click", fetchJoke);
+}
+function signup() {
+  let email = document.getElementById("newEmail").value;
+  let password = document.getElementById("newPassword").value;
+
+  let user = { email, password };
+  localStorage.setItem("user", JSON.stringify(user));
+
+  alert("Signup successful!");
+}
+function login() {
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
+
+  let storedUser = JSON.parse(localStorage.getItem("user"));
+
+  console.log("Entered:", email, password);
+  console.log("Stored:", storedUser);
+
+  if (
+    storedUser &&
+    email === storedUser.email &&
+    password === storedUser.password
+  ) {
+    localStorage.setItem("loggedIn", true);
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Invalid credentials");
+  }
+}
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "index.html";
 }
