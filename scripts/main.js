@@ -1,24 +1,40 @@
+if (window.location.pathname.includes("dashboard.html")) {
+  let isLoggedIn = localStorage.getItem("loggedIn");
+
+  if (!isLoggedIn) {
+    window.location.href = "index.html";
+  }
+}
+
+const moodQuotes = {
+  happy: [
+    "Happiness is not something ready-made. It comes from your own actions. — Dalai Lama",
+    "Enjoy the little things in life, for one day you’ll look back and realize they were the big things. — Robert Brault",
+    "The purpose of our lives is to be happy. — Dalai Lama"
+  ],
+  sad: [
+    "Sadness flies away on the wings of time. — Jean de La Fontaine",
+    "You don’t have to control your emotions; just don’t let them control you. — Unknown",
+    "It’s okay to feel sad. Just remember you won’t feel this way forever. — Unknown"
+  ],
+  anxious: [
+    "You don’t have to control your thoughts. You just have to stop letting them control you. — Dan Millman",
+    "Breathe. You’re going to be okay. You’ve gotten through this before. — Unknown",
+    "Nothing diminishes anxiety faster than action. — Walter Anderson"
+  ],
+  angry: [
+    "For every minute you are angry you lose sixty seconds of happiness. — Ralph Waldo Emerson",
+    "Speak when you are angry and you’ll make the best speech you’ll ever regret. — Ambrose Bierce",
+    "Anger is one letter short of danger. — Eleanor Roosevelt"
+  ],
+  tired: [
+    "Almost everything will work again if you unplug it for a few minutes… including you. — Anne Lamott",
+    "Sometimes the most productive thing you can do is rest. — Mark Black",
+    "Rest is not idleness. It’s recovery. — Seneca"
+  ]
+};
 
 window.addEventListener("DOMContentLoaded", function () {
-  
-  if (window.location.pathname.includes("dashboard.html")) {
-    let isLoggedIn = localStorage.getItem("loggedIn");
-
-    if (!isLoggedIn || isLoggedIn !== "true") {
-      window.location.href = "index.html";
-    }
-  }
-
-  // ===============================
-  // MOOD QUOTES
-  // ===============================
-  const moodQuotes = {
-    happy: ["Happiness is not something ready-made. — Dalai Lama"],
-    sad: ["It’s okay to feel sad. This will pass."],
-    anxious: ["Breathe. You are going to be okay."],
-    angry: ["Take a deep breath before reacting."],
-    tired: ["Rest is productive. Take care of yourself."]
-  };
 
   function showMotivationalQuotes(mood) {
     const quoteSection = document.getElementById("quote-section");
@@ -26,7 +42,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     if (!quoteSection || !quoteList) return;
 
-    const quotes = moodQuotes[mood] || ["Take care of your mental health 💚"];
+    const quotes = moodQuotes[mood] || ["Take care of your mental health today 💚"];
 
     quoteList.innerHTML = "";
 
@@ -39,9 +55,27 @@ window.addEventListener("DOMContentLoaded", function () {
     quoteSection.style.display = "block";
   }
 
-  // ===============================
-  // TIP BUTTON
-  // ===============================
+  function showRandomQuote() {
+    const moodSelect = document.getElementById("mood-select");
+    const quoteList = document.getElementById("quote-text");
+    const quoteSection = document.getElementById("quote-section");
+
+    if (!moodSelect || !quoteList || !quoteSection) return;
+
+    const mood = moodSelect.value;
+    const quotes = moodQuotes[mood] || [];
+
+    if (quotes.length === 0) {
+      quoteList.innerHTML = "<p>No quotes available.</p>";
+    } else {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteList.innerHTML = `<p>${random}</p>`;
+    }
+
+    quoteSection.style.display = "block";
+  }
+
+  // TIP
   const tipBtn = document.getElementById("get-tip-btn");
 
   if (tipBtn) {
@@ -60,22 +94,22 @@ window.addEventListener("DOMContentLoaded", function () {
 
       switch (mood) {
         case "happy":
-          tip = "Celebrate your happiness and write it down!";
+          tip = "Celebrate your happiness and write it down! 💛";
           break;
         case "sad":
-          tip = "Talk to someone you trust.";
+          tip = "Talk to someone you trust. 🫂";
           break;
         case "anxious":
-          tip = "Try deep breathing.";
+          tip = "Take deep breaths. 🌬️";
           break;
         case "angry":
-          tip = "Pause before reacting.";
+          tip = "Pause before reacting. 🚶‍♀️";
           break;
         case "tired":
-          tip = "Rest and recharge.";
+          tip = "Rest and recharge. 😴";
           break;
         default:
-          tip = "Take care of yourself 💚";
+          tip = "Take care of your mental health 💚";
       }
 
       if (tipText) tipText.textContent = tip;
@@ -85,54 +119,25 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===============================
-  // RANDOM QUOTE
-  // ===============================
+  // NEW QUOTE (FIXED)
   const newQuoteBtn = document.getElementById("new-quote-btn");
 
   if (newQuoteBtn) {
-    newQuoteBtn.addEventListener("click", function () {
-      const mood = document.getElementById("mood-select")?.value;
-      const quoteList = document.getElementById("quote-text");
-
-      if (!quoteList) return;
-
-      const quotes = moodQuotes[mood] || [];
-
-      if (quotes.length === 0) {
-        quoteList.innerHTML = "<p>No quotes available.</p>";
-      } else {
-        const random = quotes[Math.floor(Math.random() * quotes.length)];
-        quoteList.innerHTML = `<p>${random}</p>`;
-      }
-    });
+    newQuoteBtn.addEventListener("click", showRandomQuote);
   }
 
-  // ===============================
-  // SAVE NOTES
-  // ===============================
+  // NOTES
   const saveNotesBtn = document.getElementById("save-notes-btn");
 
   if (saveNotesBtn) {
     saveNotesBtn.addEventListener("click", () => {
-      const notes = document.getElementById("user-notes")?.value.trim();
-      const confirmation = document.getElementById("save-confirmation");
-
+      const notes = document.getElementById("user-notes")?.value;
       if (notes) {
         localStorage.setItem("mindtrackUserNotes", notes);
-
-        if (confirmation) {
-          confirmation.style.display = "block";
-
-          setTimeout(() => {
-            confirmation.style.display = "none";
-          }, 3000);
-        }
       }
     });
   }
 
-  // Load saved notes
   const notesField = document.getElementById("user-notes");
 
   if (notesField) {
@@ -142,15 +147,13 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ===============================
-  // AFFIRMATION
-  // ===============================
+  // AFFIRMATION (SAFE FIX)
   const getAffirmationBtn = document.getElementById("get-affirmation-btn");
   const affirmationText = document.getElementById("affirmation-text");
 
   if (getAffirmationBtn && affirmationText) {
     getAffirmationBtn.addEventListener("click", () => {
-      affirmationText.textContent = "Loading...";
+      affirmationText.textContent = "Loading affirmation...";
 
       fetch("https://www.affirmations.dev/")
         .then(res => res.json())
@@ -158,14 +161,12 @@ window.addEventListener("DOMContentLoaded", function () {
           affirmationText.textContent = data.affirmation;
         })
         .catch(() => {
-          affirmationText.textContent = "Error loading affirmation.";
+          affirmationText.textContent = "Couldn't fetch affirmation.";
         });
     });
   }
 
-  // ===============================
   // FUN FACT
-  // ===============================
   const getFunFactBtn = document.getElementById("get-fun-fact-btn");
   const funFactText = document.getElementById("fun-fact-text");
 
@@ -177,30 +178,25 @@ window.addEventListener("DOMContentLoaded", function () {
           funFactText.textContent = data.text;
         })
         .catch(() => {
-          funFactText.textContent = "Could not load fun fact.";
+          funFactText.textContent = "Couldn't fetch fun fact.";
         });
     });
   }
 
-  // ===============================
   // JOKE
-  // ===============================
   const getJokeBtn = document.getElementById("get-joke-btn");
   const jokeText = document.getElementById("joke-text");
-  const jokeSection = document.getElementById("joke-section");
 
   function fetchJoke() {
-    if (!jokeText || !jokeSection) return;
-
     fetch("https://official-joke-api.appspot.com/jokes/random")
       .then(res => res.json())
       .then(data => {
-        jokeText.textContent = `${data.setup} — ${data.punchline}`;
-        jokeSection.style.display = "block";
+        if (jokeText) {
+          jokeText.textContent = `${data.setup} — ${data.punchline}`;
+        }
       })
       .catch(() => {
-        jokeText.textContent = "Could not load joke.";
-        jokeSection.style.display = "block";
+        if (jokeText) jokeText.textContent = "Couldn't fetch joke.";
       });
   }
 
@@ -208,24 +204,16 @@ window.addEventListener("DOMContentLoaded", function () {
     getJokeBtn.addEventListener("click", fetchJoke);
   }
 
-  // Load one joke on page load (safe)
-  if (jokeText) {
-    fetchJoke();
-  }
+  fetchJoke();
 
 });
 
-// ===============================
-// AUTH FUNCTIONS (GLOBAL)
-// ===============================
+// AUTH
 function signup() {
   const email = document.getElementById("newEmail")?.value;
   const password = document.getElementById("newPassword")?.value;
 
-  if (!email || !password) {
-    alert("Fill in all fields");
-    return;
-  }
+  if (!email || !password) return alert("Fill all fields");
 
   localStorage.setItem("user", JSON.stringify({ email, password }));
 
@@ -238,11 +226,7 @@ function login() {
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
-  if (
-    storedUser &&
-    email === storedUser.email &&
-    password === storedUser.password
-  ) {
+  if (storedUser && email === storedUser.email && password === storedUser.password) {
     localStorage.setItem("loggedIn", "true");
     window.location.href = "dashboard.html";
   } else {
