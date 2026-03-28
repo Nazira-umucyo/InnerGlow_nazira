@@ -141,3 +141,13 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
+button {
+  display: block;
+  margin: 1.5rem auto 0;
+
+}
+
+  .logout-btn {
+  display: block;
+  margin: 1.5rem 0 0 auto;
+}
