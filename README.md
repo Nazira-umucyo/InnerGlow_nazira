@@ -53,15 +53,17 @@ Display dynamic responses
 
 🌟 Affirmations API
 https://www.affirmations.dev/
+
 🤓 Fun Facts API
 https://uselessfacts.jsph.pl/api/v2/facts/random?language=en
+
 😂 Official Joke API
 https://official-joke-api.appspot.com/jokes/random
 
 
 
 ##  Youtube
- Demo video:
+ Demo video: https://youtu.be/3Yq_1Nl1C6U
     
 ---
 ## 🧩 Challenges & Solutions
